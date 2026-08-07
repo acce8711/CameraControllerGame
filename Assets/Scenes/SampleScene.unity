@@ -372,6 +372,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1400510794}
   m_SourcePrefab: {fileID: 100100000, guid: a65acf0cbf56b80419f74ebf0bc845f4, type: 3}
+--- !u!114 &1165101261 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 11442534, guid: a65acf0cbf56b80419f74ebf0bc845f4, type: 3}
+  m_PrefabInstance: {fileID: 1165101260}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1400510792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc5f48af2cffd747a079fe8c632e2c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1189450900
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,6 +428,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24a24678938daf845a8df57250f75a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serialController: {fileID: 1165101261}
 --- !u!1 &1400510792 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 128384, guid: a65acf0cbf56b80419f74ebf0bc845f4, type: 3}
@@ -439,6 +451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a54b149d3e52eab43b1edec93f601b12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  communicationManager: {fileID: 1189450905}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
