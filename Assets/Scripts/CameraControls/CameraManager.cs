@@ -32,4 +32,9 @@ public class CameraManager : MonoBehaviour
 
         picture_display.texture = picture_texture;
     }
+
+    public void RotateCamera()
+    {
+
+    }
 }
