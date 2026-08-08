@@ -14,4 +14,5 @@ public static class CommunicationConstants
 
     public const string TAKE_PICTURE = "takePicture";
     public const string ADJUST_SPEED = "adjustSpeed";
+    public const string ROTATE_CAMERA = "rotateCamera";
 }

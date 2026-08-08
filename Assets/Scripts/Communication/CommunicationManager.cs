@@ -5,6 +5,7 @@ using UnityEngine;
 public class CommunicationManager : MonoBehaviour
 {
     public SerialController serialController;
+    public CameraManager cameraManager;
 
     // Start is called before the first frame update
     void Start()
@@ -25,9 +26,18 @@ public class CommunicationManager : MonoBehaviour
         {
             case CommunicationConstants.TAKE_PICTURE:
                 Debug.Log("Take picture");
+                cameraManager.TakePicture();
                 break;
             case CommunicationConstants.ADJUST_SPEED:
-                Debug.Log("Adjust speed: " + commands[1]);
+                if(commands.Length > 1)
+                    Debug.Log("Adjust speed: " + commands[1]);
+                break;
+            case CommunicationConstants.ROTATE_CAMERA:
+                if (commands.Length > 1 && int.TryParse(commands[1], out int angle))
+                {
+                    Debug.Log("Rotate camera: " + commands[1]);
+                    cameraManager.RotateCamera(angle);
+                }
                 break;
             default:
                 Debug.Log("Another command received");

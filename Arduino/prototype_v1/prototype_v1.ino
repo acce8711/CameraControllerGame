@@ -8,6 +8,8 @@ int mapped_camera_speed = 0;
 int picture_button_val = 1;
 int prev_picture_button_val = 1;
 
+int mapped_camera_rotation = 0;
+
 unsigned long last_time = 0;
 
 int delay_num = 100;
@@ -15,6 +17,7 @@ int delay_num = 100;
 //Commands
 const String TAKE_PICTURE = "takePicture";
 const String ADJUST_SPEED = "adjustSpeed";
+const String ROTATE_CAMERA = "rotateCamera";
 
 void setup() {
   // put your setup code here, to run once:
@@ -25,8 +28,9 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  MonitorPictureTaking(picture_button_val, prev_picture_button_val);
-  MonitorCameraSpeed(camera_speed_val, mapped_camera_speed);
+  //MonitorPictureTaking(picture_button_val, prev_picture_button_val);
+  //MonitorCameraSpeed(camera_speed_val, mapped_camera_speed);
+  MonitorCameraRotation(camera_speed_val, mapped_camera_speed);
 
 
   //Serial.println("Pot value: " + String(pot_val));
@@ -77,4 +81,30 @@ void MonitorCameraSpeed(int &camera_speed_val, int &mapped_camera_speed) {
     mapped_camera_speed = mapped_speed;
     Serial.println(ADJUST_SPEED + "," + mapped_camera_speed);
   }
+}
+
+//temp
+void MonitorCameraRotation(int &camera_speed_val, int &mapped_camera_speed) {
+  long avg_cam_speed = analogRead(camera_speed_pin);
+  for(int i = 0; i< 10; i++) {
+    avg_cam_speed =  avg_cam_speed + analogRead(camera_speed_pin);
+  }
+  camera_speed_val = avg_cam_speed / 11;
+
+  //Serial.println(camera_speed_val);
+
+  if(camera_speed_val > 880)
+    camera_speed_val = 880;
+
+  if(camera_speed_val < 198) 
+    camera_speed_val = 198;
+
+  int mapped_rotation = (180./682. * camera_speed_val) - (35640./682.) - 90.;
+  //Serial.println(mapped_rotation);
+
+  if(mapped_rotation != mapped_camera_rotation && (!(mapped_rotation == 90 && mapped_camera_rotation == -90) || !(mapped_rotation == -90 && mapped_camera_rotation == 90))) {
+    mapped_camera_rotation = mapped_rotation;
+    Serial.println(ROTATE_CAMERA + "," + mapped_camera_rotation);
+  }
+
 }

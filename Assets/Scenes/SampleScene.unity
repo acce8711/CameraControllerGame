@@ -1094,6 +1094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serialController: {fileID: 1165101261}
+  cameraManager: {fileID: 1830424769}
 --- !u!1 &1400510792 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 128384, guid: a65acf0cbf56b80419f74ebf0bc845f4, type: 3}
@@ -1320,6 +1321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 961ce1f06ba603f4e88149a1ce436a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  main_camera: {fileID: 963194225}
   picture_camera: {fileID: 1079026371}
   picture_texture: {fileID: 8400000, guid: 8cd063df58936b444ae72450c2f1ab19, type: 2}
   picture_display: {fileID: 1640089561}
